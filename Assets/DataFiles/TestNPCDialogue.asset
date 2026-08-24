@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282a93dea7f9b994892aa6be32016dee, type: 3}
+  m_Name: TestNPCDialogue
+  m_EditorClassIdentifier: 
+  npcName: Robbeyyy
+  portrait: {fileID: 21300000, guid: bf08320a315cc3547b2c6ba027ef6e78, type: 3}
+  dialogueLines:
+  - I think I just pooped my pants...
+  - Could you be so kind and check if I have for me?
+  - Oh... You really won't?
+  - Well, I am sorry to ask.
+  - Thank you so much!
+  - It means a world to me.
+  typingSpeed: 0.025
+  autoProgressLines: 0100
+  autoProgressDelay: 1.5
+  endDialogueLines: 000000010001
+  voiceSound: {fileID: 8300000, guid: 031c659ab9d59454ca58149dfc895c4d, type: 3}
+  voicePitch: 0.5
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - Ew... what?
+    - Sure, no problem!
+    nextDialogueIndices: 0200000004000000
+  - dialogueIndex: 1
+    choices:
+    - Ew... what?
+    - Sure, no problem!
+    nextDialogueIndices: 0200000004000000
+  - dialogueIndex: 2
+    choices:
+    - No, I really won't.
+    - Uhh... I guess I can.
+    nextDialogueIndices: 0300000004000000
