@@ -12,34 +12,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282a93dea7f9b994892aa6be32016dee, type: 3}
   m_Name: TestNPCDialogue
   m_EditorClassIdentifier: 
-  npcName: Robbeyyy
+  npcName: Robert Robertson
   portrait: {fileID: 21300000, guid: bf08320a315cc3547b2c6ba027ef6e78, type: 3}
-  dialogueLines:
-  - I think I just pooped my pants...
-  - Could you be so kind and check if I have for me?
-  - Oh... You really won't?
-  - Well, I am sorry to ask.
-  - Thank you so much!
-  - It means a world to me.
-  typingSpeed: 0.025
-  autoProgressLines: 0100
-  autoProgressDelay: 1.5
-  endDialogueLines: 000000010001
+  blinkPortrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  talkingPortrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   voiceSound: {fileID: 8300000, guid: 031c659ab9d59454ca58149dfc895c4d, type: 3}
   voicePitch: 0.5
-  choices:
-  - dialogueIndex: 1
+  typingSpeed: 0.025
+  periodPause: 0.2
+  firstConversationCompleteFlag: robert_met
+  repeatConversationStartNode: 3
+  nodes:
+  - speaker: 0
+    text: Yes, [danger][shake]BOTH OF THEM[/shake][/danger]. And [wave=0.5]YOU[/wave]
+      are?
+    nextNodeIndex: -1
+    endDialogue: 0
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: robert_met
+    choices: []
+    askForPlayerName: 1
+  - speaker: 1
+    text: I'm [wave=0.5][item]{playerName}[/item][/wave].
+    nextNodeIndex: 2
+    endDialogue: 0
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
+    choices: []
+    askForPlayerName: 0
+  - speaker: 0
+    text: Pleasure to meet you, {playerName}. Try not to murder anyone tonight.
+    nextNodeIndex: 0
+    endDialogue: 1
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
+    choices: []
+    askForPlayerName: 0
+  - speaker: 0
+    text: Hello, {playerName}. Was there anything else you wanted to ask me?
+    nextNodeIndex: 0
+    endDialogue: 1
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
     choices:
-    - Ew... what?
-    - Sure, no problem!
-    nextDialogueIndices: 0200000004000000
-  - dialogueIndex: 1
-    choices:
-    - Ew... what?
-    - Sure, no problem!
-    nextDialogueIndices: 0200000004000000
-  - dialogueIndex: 2
-    choices:
-    - No, I really won't.
-    - Uhh... I guess I can.
-    nextDialogueIndices: 0300000004000000
+    - choiceText: Where is the bathroom?
+      nextNodeIndex: 4
+      requiredFlag: 
+      forbiddenFlag: 
+      flagToSet: 
+      popupText: Robert will remember your human need to visit the bathroom.
+    - choiceText: Actually, nevermind!
+      nextNodeIndex: 5
+      requiredFlag: 
+      forbiddenFlag: 
+      flagToSet: 
+      popupText: 
+    askForPlayerName: 0
+  - speaker: 1
+    text: Yes, where is the bathroom in here?
+    nextNodeIndex: 6
+    endDialogue: 0
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
+    choices: []
+    askForPlayerName: 0
+  - speaker: 1
+    text: No, actually, nevermind!
+    nextNodeIndex: 7
+    endDialogue: 0
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
+    choices: []
+    askForPlayerName: 0
+  - speaker: 0
+    text: The bathroom is located on the upper floor to the left. You won't miss
+      it.
+    nextNodeIndex: 0
+    endDialogue: 1
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
+    choices: []
+    askForPlayerName: 0
+  - speaker: 0
+    text: 'Oh, okay then. '
+    nextNodeIndex: 0
+    endDialogue: 1
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
+    choices: []
+    askForPlayerName: 0
