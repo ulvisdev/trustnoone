@@ -19,6 +19,7 @@ MonoBehaviour:
   lines:
   - text: There is [shake][danger]blood[/danger][/shake] along the blade. That's
       [wave]probably[/wave] [danger]bad[/danger].
+    image: {fileID: 21300000, guid: bf08320a315cc3547b2c6ba027ef6e78, type: 3}
     autoProgress: 0
     autoProgressDelay: 0
     voiceOver: {fileID: 0}
