@@ -18,16 +18,16 @@ public class NotificationManager : MonoBehaviour
     [Header("Stack")]
     public bool newestOnTop = true;
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
+    // private void Awake()
+    // {
+    //     if (Instance == null)
+    //         Instance = this;
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //         return;
+    //     }
+    // }
 
     public void ShowNotification(string message)
     {

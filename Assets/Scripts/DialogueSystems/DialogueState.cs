@@ -18,20 +18,20 @@ public class DialogueState : MonoBehaviour
 
     private HashSet<string> flags = new HashSet<string>();
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+    // private void Awake()
+    // {
+    //     if (Instance == null)
+    //     {
+    //         Instance = this;
+    //         DontDestroyOnLoad(gameObject);
 
-            PlayerName = defaultPlayerName;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    //         PlayerName = defaultPlayerName;
+    //     }
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     public void SetPlayerName(string newName)
     {

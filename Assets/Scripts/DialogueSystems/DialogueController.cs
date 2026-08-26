@@ -51,13 +51,13 @@ public class DialogueController : MonoBehaviour
 
     private Action<string> nameConfirmedCallback;
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-    }
+    // private void Awake()
+    // {
+    //     if (Instance == null)
+    //         Instance = this;
+    //     else
+    //         Destroy(gameObject);
+    // }
 
     private void Start()
     {

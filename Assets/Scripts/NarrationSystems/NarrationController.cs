@@ -47,13 +47,13 @@ public class NarrationController : MonoBehaviour
     private readonly List<float> waveStrengths = new List<float>();
     private readonly List<float> revealTimes = new List<float>();
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-    }
+    // private void Awake()
+    // {
+    //     if (Instance == null)
+    //         Instance = this;
+    //     else
+    //         Destroy(gameObject);
+    // }
 
     private void Start()
     {
