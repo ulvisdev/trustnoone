@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280c4326a059df94fabc20b6d7fee8dc, type: 3}
+  m_Name: TestItemNarrationData
+  m_EditorClassIdentifier: 
+  heading: A Bloody Ceremonial Knife
+  typingSpeed: 0.03
+  punctuationPause: 0.15
+  pauseGame: 1
+  lines:
+  - text: There is [shake][danger]blood[/danger][/shake] along the blade. That's
+      [wave]probably[/wave] [danger]bad[/danger].
+    autoProgress: 0
+    autoProgressDelay: 0
+    voiceOver: {fileID: 0}

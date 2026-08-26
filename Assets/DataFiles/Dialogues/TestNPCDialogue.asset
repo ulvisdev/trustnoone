@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282a93dea7f9b994892aa6be32016dee, type: 3}
   m_Name: TestNPCDialogue
   m_EditorClassIdentifier: 
-  npcName: Robert Robertson
-  portrait: {fileID: 21300000, guid: bf08320a315cc3547b2c6ba027ef6e78, type: 3}
-  blinkPortrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  talkingPortrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  npcName: Dr. Miri
+  portrait: {fileID: 21300000, guid: 3808e30608a91ad4f8d09413a7efdbd8, type: 3}
+  blinkPortrait: {fileID: 21300000, guid: c2bb1c827fefd60448b2577adf2475f4, type: 3}
+  talkingPortrait: {fileID: 21300000, guid: 023b2afda56cede4da6d88191b06a384, type: 3}
   voiceSound: {fileID: 8300000, guid: 031c659ab9d59454ca58149dfc895c4d, type: 3}
   voicePitch: 0.5
   typingSpeed: 0.025

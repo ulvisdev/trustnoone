@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280c4326a059df94fabc20b6d7fee8dc, type: 3}
+  m_Name: TestNarrationData
+  m_EditorClassIdentifier: 
+  heading: THE VELTRAX ESTATE
+  typingSpeed: 0.03
+  punctuationPause: 0.15
+  pauseGame: 1
+  lines:
+  - text: '[wave=0.4][item]You''ve[/item] been invited[/wave] to the most [wave]prestigious[/wave]
+      diplomatic gathering in the galaxy.'
+    autoProgress: 0
+    autoProgressDelay: 1.5
+    voiceOver: {fileID: 0}
+  - text: '[danger]Unfortunately[/danger], nobody told you why.'
+    autoProgress: 0
+    autoProgressDelay: 1.5
+    voiceOver: {fileID: 0}
+  - text: And judging by the [danger]armed guards[/danger], asking may have been
+      a [shake=0.4]mistake[/shake].
+    autoProgress: 0
+    autoProgressDelay: 1.5
+    voiceOver: {fileID: 0}
