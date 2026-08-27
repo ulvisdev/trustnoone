@@ -4,13 +4,16 @@ public class PauseController : MonoBehaviour
 {
     public static bool IsGamePaused { get; private set; }
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetPause()
+    {
+        IsGamePaused = false;
+        Time.timeScale = 1f;
+    }
+
     public static void SetPause(bool pause)
     {
         IsGamePaused = pause;
-
-        if (pause)
-            Time.timeScale = 0f;
-        else
-            Time.timeScale = 1f;
+        Time.timeScale = pause ? 0f : 1f;
     }
 }

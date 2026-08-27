@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour
     private bool isDialogueActive;
     private bool isWaitingForChoice;
     private bool isWaitingForName;
+    private bool isTransitioning;
 
     private int dialogueStartFrame;
 
@@ -26,6 +27,10 @@ public class NPC : MonoBehaviour
     private void Update()
     {
         if (!isDialogueActive)
+            return;
+
+        //optional
+        if (isTransitioning)
             return;
 
         if (!Input.GetMouseButtonDown(0))
@@ -137,7 +142,7 @@ public class NPC : MonoBehaviour
             dialogueUI.RevealDialogueCharacter(i);
 
             char character = dialogueUI.GetDialogueCharacter(i);
-            
+
             if (!char.IsWhiteSpace(character))
                 SoundEffectManager.PlayVoice(voiceClip, voicePitch);
 
@@ -158,6 +163,10 @@ public class NPC : MonoBehaviour
 
     private void NextLine()
     {
+        //optional
+        if (isTransitioning)
+            return;
+
         if (isTyping)
         {
             StopAllCoroutines();
@@ -193,9 +202,16 @@ public class NPC : MonoBehaviour
             return;
         }
 
-        dialogueIndex = nextIndex;
+        TransitionToNode(nextIndex);
+    }
 
-        DisplayCurrentNode();
+    private void TransitionToNode(int nextIndex)
+    {
+        isTransitioning = true;
+
+        dialogueUI.ShowContinueArrow(false);
+
+        dialogueUI.TransitionLine(() => { dialogueIndex = nextIndex; DisplayCurrentNode(); }, () => { isTransitioning = false; });
     }
 
     private void AfterLineFinished()
@@ -248,6 +264,9 @@ public class NPC : MonoBehaviour
             dialogueUI.CreateChoiceButton(displayedChoice, () => ChooseOption(selectedChoice));
         }
 
+        if (foundValidChoice)
+            dialogueUI.ShowChoices();
+
         isWaitingForChoice = foundValidChoice;
 
         return foundValidChoice;
@@ -264,21 +283,26 @@ public class NPC : MonoBehaviour
         dialogueUI.ShowContinueArrow(false);
 
         isWaitingForChoice = false;
-        dialogueUI.ClearChoices();
+        isTransitioning = true;
+
         int nextIndex = choice.nextNodeIndex;
 
         if (nextIndex < 0)
             nextIndex = GetNextNodeIndex(dialogueIndex);
 
-        if (nextIndex < 0 || nextIndex >= dialogueData.nodes.Length)
+        int targetIndex = nextIndex;
+
+        dialogueUI.HideChoices(() =>
         {
-            EndDialogue();
-            return;
-        }
+            if (targetIndex < 0 || targetIndex >= dialogueData.nodes.Length)
+            {
+                isTransitioning = false;
+                EndDialogue();
+                return;
+            }
 
-        dialogueIndex = nextIndex;
-
-        DisplayCurrentNode();
+            dialogueUI.TransitionLine(() => {dialogueIndex = targetIndex; DisplayCurrentNode();}, () => {isTransitioning = false;});
+        });
     }
 
     private void PlayerNameEntered(string playerName)
@@ -384,6 +408,7 @@ public class NPC : MonoBehaviour
         isDialogueActive = false;
         isWaitingForChoice = false;
         isWaitingForName = false;
+        isTransitioning = false;
 
         dialogueUI.ClearChoices();
         dialogueUI.HideNameInput();

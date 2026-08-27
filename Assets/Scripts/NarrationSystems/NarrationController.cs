@@ -21,6 +21,7 @@ public class NarrationController : MonoBehaviour
 
     [Header("UI")]
     public GameObject narrationPanel;
+    public UIFade narrationFade;
     public TMP_Text narrationText;
     public TMP_Text headingText;
     public GameObject continueIndicator;
@@ -32,6 +33,7 @@ public class NarrationController : MonoBehaviour
     public bool IsNarrating { get; private set; }
 
     private NarrationData currentNarration;
+    public UITransition lineTransition;
     private int lineIndex;
     private int narrationStartFrame;
     private int visibleCharacterCount;
@@ -47,17 +49,21 @@ public class NarrationController : MonoBehaviour
     private readonly List<float> waveStrengths = new List<float>();
     private readonly List<float> revealTimes = new List<float>();
 
-    // private void Awake()
-    // {
-    //     if (Instance == null)
-    //         Instance = this;
-    //     else
-    //         Destroy(gameObject);
-    // }
-
-    private void Start()
+    private void Awake()
     {
-        narrationPanel.SetActive(false);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        IsNarrating = false;
+        pausedByNarration = false;
+
+        if (narrationPanel != null)
+            narrationPanel.SetActive(false);
 
         if (continueIndicator != null)
             continueIndicator.SetActive(false);
@@ -66,6 +72,9 @@ public class NarrationController : MonoBehaviour
     private void Update()
     {
         if (!IsNarrating)
+            return;
+
+        if (lineTransition != null && lineTransition.IsTransitioning)
             return;
 
         if (!Input.GetMouseButtonDown(0))
@@ -99,7 +108,10 @@ public class NarrationController : MonoBehaviour
         IsNarrating = true;
         narrationStartFrame = Time.frameCount;
 
-        narrationPanel.SetActive(true);
+        if (narrationFade != null)
+            narrationFade.Show();
+        else
+            narrationPanel.SetActive(true);
 
         if (headingText != null)
         {
@@ -134,6 +146,10 @@ public class NarrationController : MonoBehaviour
             continueIndicator.SetActive(false);
 
         NarrationLine line = currentNarration.lines[lineIndex];
+
+        //cutscene controller shows a frame
+        if (CutsceneController.Instance != null)
+            CutsceneController.Instance.ShowNarrationFrame(lineIndex);
 
         if (narrationImage != null)
         {
@@ -231,15 +247,27 @@ public class NarrationController : MonoBehaviour
     {
         StopCurrentCoroutine();
 
-        lineIndex++;
+        int nextIndex = lineIndex + 1;
 
-        if (lineIndex >= currentNarration.lines.Length)
+        if (nextIndex >= currentNarration.lines.Length)
         {
             EndNarration();
             return;
         }
 
-        DisplayCurrentLine();
+        if (lineTransition != null)
+        {
+            lineTransition.Swap(() =>
+            {
+                lineIndex = nextIndex;
+                DisplayCurrentLine();
+            });
+        }
+        else
+        {
+            lineIndex = nextIndex;
+            DisplayCurrentLine();
+        }
     }
 
     public void EndNarration()
@@ -249,13 +277,27 @@ public class NarrationController : MonoBehaviour
         if (voiceOverSource != null)
             voiceOverSource.Stop();
 
+        IsNarrating = false;
+        isTyping = false;
+
+        if (continueIndicator != null)
+            continueIndicator.SetActive(false);
+
+        if (narrationFade != null)
+            narrationFade.Hide(FinishNarrationClose);
+        else
+        {
+            narrationPanel.SetActive(false);
+            FinishNarrationClose();
+        }
+    }
+
+    private void FinishNarrationClose()
+    {
         narrationText.text = "";
 
         if (headingText != null)
             headingText.text = "";
-
-        if (continueIndicator != null)
-            continueIndicator.SetActive(false);
 
         if (narrationImage != null)
         {
@@ -263,10 +305,6 @@ public class NarrationController : MonoBehaviour
             narrationImage.gameObject.SetActive(false);
         }
 
-        narrationPanel.SetActive(false);
-
-        IsNarrating = false;
-        isTyping = false;
         currentNarration = null;
 
         if (pausedByNarration)
@@ -274,6 +312,10 @@ public class NarrationController : MonoBehaviour
             PauseController.SetPause(false);
             pausedByNarration = false;
         }
+
+        //end cutscene together with narration
+        if (CutsceneController.Instance != null)
+            CutsceneController.Instance.NarrationEnded();
     }
 
     private void StopCurrentCoroutine()

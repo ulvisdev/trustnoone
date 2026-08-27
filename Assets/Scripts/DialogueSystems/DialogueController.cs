@@ -9,6 +9,7 @@ public class DialogueController : MonoBehaviour
 
     [Header("Main")]
     public GameObject dialoguePanel;
+    public UIFade dialogueFade;
 
     [Header("NPC Dialogue Box")]
     public GameObject npcDialogueBox;
@@ -25,6 +26,7 @@ public class DialogueController : MonoBehaviour
     [Header("Choices")]
     public Transform choiceContainer;
     public GameObject choiceButtonPrefab;
+    public UITransition choiceTransition;
 
     [Header("Player Name Input")]
     public GameObject nameInputPanel;
@@ -43,6 +45,9 @@ public class DialogueController : MonoBehaviour
     public GameObject npcContinueArrow;
     public GameObject playerContinueArrow;
 
+    [Header("Transitions")]
+    public UITransition dialogueLineTransition;
+
     private DialogueTextEffects activeTextEffects;
     private DialoguePortraitAnimator activePortraitAnimator;
     private GameObject activeContinueArrow;
@@ -51,28 +56,41 @@ public class DialogueController : MonoBehaviour
 
     private Action<string> nameConfirmedCallback;
 
-    // private void Awake()
-    // {
-    //     if (Instance == null)
-    //         Instance = this;
-    //     else
-    //         Destroy(gameObject);
-    // }
-
-    private void Start()
+    private void Awake()
     {
-        ShowDialogue(false);
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        if (dialogueFade != null)
+            dialogueFade.HideImmediate();
+        else
+            dialoguePanel.SetActive(false);
 
         if (nameInputPanel != null)
             nameInputPanel.SetActive(false);
 
         if (confirmNameButton != null)
             confirmNameButton.onClick.AddListener(ConfirmPlayerName);
+
+        if (choiceTransition != null)
+            choiceTransition.HideImmediate();
     }
 
     public void ShowDialogue(bool show)
     {
-        dialoguePanel.SetActive(show);
+        if (dialogueFade != null)
+        {
+            if (show)
+                dialogueFade.Show();
+            else
+                dialogueFade.Hide();
+        }
+        else
+        {
+            dialoguePanel.SetActive(show);
+        }
     }
 
     public void SetSpeaker(DialogueSpeaker speaker, NPCDialogue npcData)
@@ -129,20 +147,35 @@ public class DialogueController : MonoBehaviour
     public void ClearChoices()
     {
         foreach (Transform child in choiceContainer)
-        {
             Destroy(child.gameObject);
-        }
     }
 
     public void CreateChoiceButton(string choiceText, UnityEngine.Events.UnityAction onClick)
     {
         GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceContainer);
-        TMP_Text buttonText = choiceButton.GetComponentInChildren<TMP_Text>();
 
-        buttonText.text = choiceText;
+        choiceButton.GetComponentInChildren<TMP_Text>().text = choiceText;
+        choiceButton.GetComponent<Button>().onClick.AddListener(onClick);
+    }
 
-        Button button = choiceButton.GetComponent<Button>();
-        button.onClick.AddListener(onClick);
+    public void ShowChoices()
+    {
+        if (choiceTransition != null)
+            choiceTransition.FadeIn();
+    }
+
+    public void HideChoices(Action onComplete = null)
+    {
+        foreach (Button button in choiceContainer.GetComponentsInChildren<Button>())
+            button.interactable = false;
+
+        if (choiceTransition != null)
+            choiceTransition.FadeOut(() => { ClearChoices(); onComplete?.Invoke(); });
+        else
+        {
+            ClearChoices();
+            onComplete?.Invoke();
+        }
     }
 
     public void ShowNameInput(Action<string> callback)
@@ -246,5 +279,16 @@ public class DialogueController : MonoBehaviour
 
         if (show && activeContinueArrow != null)
             activeContinueArrow.SetActive(true);
+    }
+
+    public void TransitionLine(System.Action changeLine, System.Action onComplete = null)
+    {
+        if (dialogueLineTransition != null)
+            dialogueLineTransition.Swap(changeLine, onComplete);
+        else
+        {
+            changeLine?.Invoke();
+            onComplete?.Invoke();
+        }
     }
 }

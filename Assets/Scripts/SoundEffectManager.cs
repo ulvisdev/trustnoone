@@ -8,15 +8,15 @@ public class SoundEffectManager : MonoBehaviour
 
     private void Awake()
     {
-        // if (Instance == null)
-        // {
-        //     Instance = this;
-        // }
-        // else
-        // {
-        //     Destroy(gameObject);
-        //     return;
-        // }
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         audioSource = GetComponent<AudioSource>();
     }

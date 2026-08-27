@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef590ebaff173b468dd3c27b9adf9a4, type: 3}
+  m_Name: TestCutscene
+  m_EditorClassIdentifier: 
+  frames:
+  - image: {fileID: 21300000, guid: 69b07e0ddc90ae24e9c814ae03b2992b, type: 3}
+    duration: 0
+  - image: {fileID: 21300000, guid: 2cbea6192d089034b9b80a16823547ca, type: 3}
+    duration: 0
+  - image: {fileID: 21300000, guid: b4c3eee7da92b844bb2d3ef3c25cd169, type: 3}
+    duration: 0
+  advanceMode: 0
+  narration: {fileID: 11400000, guid: 27f7f5eb5fc1b0a4ea87325a467cc9b0, type: 2}
+  keepLastFrameVisible: 0
+  pauseGame: 1
