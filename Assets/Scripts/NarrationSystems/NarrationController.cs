@@ -80,6 +80,12 @@ public class NarrationController : MonoBehaviour
         if (!Input.GetMouseButtonDown(0))
             return;
 
+        if (PauseMenuController.IsPauseMenuOpen)
+            return;
+
+        if (UIInputBlocker.IsPointerOverInteractiveUI())
+            return;
+
         if (Time.frameCount == narrationStartFrame)
             return;
 

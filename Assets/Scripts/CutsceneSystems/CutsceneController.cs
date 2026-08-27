@@ -52,8 +52,16 @@ public class CutsceneController : MonoBehaviour
         if (currentCutscene.advanceMode != CutsceneAdvanceMode.Click)
             return;
 
-        if (Input.GetMouseButtonDown(0))
-            NextFrame();
+        if (!Input.GetMouseButtonDown(0))
+            return;
+
+        if (PauseMenuController.IsPauseMenuOpen)
+            return;
+
+        if (UIInputBlocker.IsPointerOverInteractiveUI())
+            return;
+
+        NextFrame();
     }
 
     public bool StartCutscene(CutsceneData cutscene)

@@ -29,11 +29,13 @@ public class NPC : MonoBehaviour
         if (!isDialogueActive)
             return;
 
-        //optional
-        if (isTransitioning)
+        if (!Input.GetMouseButtonDown(0))
             return;
 
-        if (!Input.GetMouseButtonDown(0))
+        if (PauseMenuController.IsPauseMenuOpen)
+            return;
+
+        if (UIInputBlocker.IsPointerOverInteractiveUI())
             return;
 
         if (Time.frameCount == dialogueStartFrame)
@@ -301,7 +303,7 @@ public class NPC : MonoBehaviour
                 return;
             }
 
-            dialogueUI.TransitionLine(() => {dialogueIndex = targetIndex; DisplayCurrentNode();}, () => {isTransitioning = false;});
+            dialogueUI.TransitionLine(() => { dialogueIndex = targetIndex; DisplayCurrentNode(); }, () => { isTransitioning = false; });
         });
     }
 
