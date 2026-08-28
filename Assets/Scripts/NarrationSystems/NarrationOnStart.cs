@@ -11,5 +11,6 @@ public class NarrationOnStart : MonoBehaviour
 
         if (NarrationController.Instance != null)
             NarrationController.Instance.StartNarration(narration);
+
     }
 }
