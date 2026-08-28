@@ -19,15 +19,18 @@ MonoBehaviour:
   lines:
   - text: '[wave=0.4][item]You''ve[/item] been invited[/wave] to the most [wave]prestigious[/wave]
       diplomatic gathering in the galaxy.'
+    image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 1.5
     voiceOver: {fileID: 0}
   - text: '[danger]Unfortunately[/danger], nobody told you why.'
+    image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 1.5
     voiceOver: {fileID: 0}
   - text: And judging by the [danger]armed guards[/danger], asking may have been
       a [shake=0.4]mistake[/shake].
+    image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 1.5
     voiceOver: {fileID: 0}

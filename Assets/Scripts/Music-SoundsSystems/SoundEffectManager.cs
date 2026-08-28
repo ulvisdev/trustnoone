@@ -4,7 +4,7 @@ public class SoundEffectManager : MonoBehaviour
 {
     public static SoundEffectManager Instance { get; private set; }
 
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
     private void Awake()
     {
@@ -28,5 +28,13 @@ public class SoundEffectManager : MonoBehaviour
 
         Instance.audioSource.pitch = pitch;
         Instance.audioSource.PlayOneShot(clip);
+    }
+
+    public void PlaySFX(AudioClip clip, float volume)
+    {
+        if (clip == null)
+            return;
+
+        audioSource.PlayOneShot(clip, volume);
     }
 }

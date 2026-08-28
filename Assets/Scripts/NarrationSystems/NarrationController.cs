@@ -80,6 +80,12 @@ public class NarrationController : MonoBehaviour
         if (!Input.GetMouseButtonDown(0))
             return;
 
+        if (PauseMenuController.IsPauseMenuOpen)
+            return;
+
+        if (UIInputBlocker.IsPointerOverInteractiveUI())
+            return;
+
         if (Time.frameCount == narrationStartFrame)
             return;
 
@@ -91,22 +97,36 @@ public class NarrationController : MonoBehaviour
 
     public bool StartNarration(NarrationData narration)
     {
-        if (narration == null)
-            return false;
+    Debug.Log("NARRATION TRIGGER: " + gameObject.name + " | Scene: " + gameObject.scene.name + " | Data: " + narration);
 
-        if (IsNarrating)
-            return false;
+    if (narration == null)
+    {
+        Debug.LogWarning("Narration rejected: narration is NULL");
+        return false;
+    }
 
-        if (PauseController.IsGamePaused)
-            return false;
+    if (IsNarrating)
+    {
+        Debug.LogWarning("Narration rejected: another narration is already running");
+        return false;
+    }
 
-        if (narration.lines == null || narration.lines.Length == 0)
-            return false;
+    if (PauseController.IsGamePaused)
+    {
+        Debug.LogWarning("Narration rejected: game is already paused");
+        return false;
+    }
 
-        currentNarration = narration;
-        lineIndex = 0;
-        IsNarrating = true;
-        narrationStartFrame = Time.frameCount;
+    if (narration.lines == null || narration.lines.Length == 0)
+    {
+        Debug.LogWarning("Narration rejected: no lines");
+        return false;
+    }
+
+    currentNarration = narration;
+    lineIndex = 0;
+    IsNarrating = true;
+    narrationStartFrame = Time.frameCount;
 
         if (narrationFade != null)
             narrationFade.Show();
