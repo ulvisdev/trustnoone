@@ -8,9 +8,14 @@ public class CutsceneController : MonoBehaviour
 
     [Header("UI")]
     public GameObject cutscenePanel;
-    public Image cutsceneImage;
+    public Image cutsceneImageA;
+    public Image cutsceneImageB;
     public UIFade cutsceneFade;
-    public UITransition frameTransition;
+    [SerializeField] private float crossfadeDuration = 0.4f;
+
+    private Image currentImage;
+    private Image nextImage;
+    private Coroutine crossfadeCoroutine;
 
     public bool IsPlaying { get; private set; }
 
@@ -34,10 +39,28 @@ public class CutsceneController : MonoBehaviour
         automaticCoroutine = null;
         pausedByCutscene = false;
 
-        if (cutsceneImage != null)
+        currentImage = cutsceneImageA;
+        nextImage = cutsceneImageB;
+
+        SetImageAlpha(cutsceneImageA, 0f);
+        SetImageAlpha(cutsceneImageB, 0f);
+
+        cutsceneImageA.sprite = null;
+        cutsceneImageB.sprite = null;
+
+        cutsceneImageA.enabled = false;
+        cutsceneImageB.enabled = false;
+
+        if (cutsceneImageA != null)
         {
-            cutsceneImage.sprite = null;
-            cutsceneImage.enabled = false;
+            cutsceneImageA.sprite = null;
+            cutsceneImageA.enabled = false;
+        }
+
+        if (cutsceneImageB != null)
+        {
+            cutsceneImageB.sprite = null;
+            cutsceneImageB.enabled = false;
         }
 
         // if (cutscenePanel != null)
@@ -141,19 +164,23 @@ public class CutsceneController : MonoBehaviour
 
         Sprite newSprite = currentCutscene.frames[frameIndex].image;
 
-        if (frameTransition != null)
+        if (index == 0)
         {
-            frameTransition.Swap(() =>
-            {
-                cutsceneImage.sprite = newSprite;
-                cutsceneImage.enabled = newSprite != null;
-            });
+            currentImage.sprite = newSprite;
+            currentImage.enabled = newSprite != null;
+            SetImageAlpha(currentImage, 1f);
+
+            nextImage.sprite = null;
+            nextImage.enabled = false;
+            SetImageAlpha(nextImage, 0f);
+
+            return;
         }
-        else
-        {
-            cutsceneImage.sprite = newSprite;
-            cutsceneImage.enabled = newSprite != null;
-        }
+
+        if (crossfadeCoroutine != null)
+            StopCoroutine(crossfadeCoroutine);
+
+        crossfadeCoroutine = StartCoroutine(CrossfadeFrame(newSprite));
     }
 
     private void NextFrame()
@@ -167,6 +194,48 @@ public class CutsceneController : MonoBehaviour
         }
 
         ShowFrame(frameIndex);
+    }
+
+    private IEnumerator CrossfadeFrame(Sprite newSprite)
+    {
+        nextImage.sprite = newSprite;
+        nextImage.enabled = newSprite != null;
+
+        SetImageAlpha(nextImage, 0f);
+
+        float startCurrentAlpha = currentImage.color.a;
+        float time = 0f;
+
+        while (time < crossfadeDuration)
+        {
+            time += Time.unscaledDeltaTime;
+
+            float t = Mathf.Clamp01(time / crossfadeDuration);
+
+            SetImageAlpha(currentImage, Mathf.Lerp(startCurrentAlpha, 0f, t));
+            SetImageAlpha(nextImage, Mathf.Lerp(0f, 1f, t));
+
+            yield return null;
+        }
+
+        SetImageAlpha(currentImage, 0f);
+        SetImageAlpha(nextImage, 1f);
+
+        currentImage.enabled = false;
+        currentImage.sprite = null;
+
+        Image oldImage = currentImage;
+        currentImage = nextImage;
+        nextImage = oldImage;
+
+        crossfadeCoroutine = null;
+    }
+
+    private void SetImageAlpha(Image image, float alpha)
+    {
+        Color color = image.color;
+        color.a = alpha;
+        image.color = color;
     }
 
     private void StartAutomaticFrame()
@@ -241,8 +310,20 @@ public class CutsceneController : MonoBehaviour
 
     public void HideCutscene()
     {
-        cutsceneImage.sprite = null;
-        cutsceneImage.enabled = false;
+        if (crossfadeCoroutine != null)
+        {
+            StopCoroutine(crossfadeCoroutine);
+            crossfadeCoroutine = null;
+        }
+
+        cutsceneImageA.sprite = null;
+        cutsceneImageA.enabled = false;
+        SetImageAlpha(cutsceneImageA, 0f);
+
+        cutsceneImageB.sprite = null;
+        cutsceneImageB.enabled = false;
+        SetImageAlpha(cutsceneImageB, 0f);
+
         cutscenePanel.SetActive(false);
     }
 }

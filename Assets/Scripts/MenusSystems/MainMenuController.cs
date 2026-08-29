@@ -11,6 +11,8 @@ public class MainMenuController : MonoBehaviour
     [Header("Transitions")]
     [SerializeField] private MenuPanelTransition panelTransition;
 
+    [SerializeField] private UIMenuEntrance menuEntrance;
+
     [Header("Scenes")]
     [SerializeField] private string gameSceneName = "Game";
 
@@ -22,6 +24,11 @@ public class MainMenuController : MonoBehaviour
         panelTransition.ShowImmediate(howToPlayPanel, false);
         panelTransition.ShowImmediate(optionsPanel, false);
         panelTransition.ShowImmediate(creditsPanel, false);
+    }
+
+    private void Start()
+    {
+        menuEntrance.Play();
     }
 
     public void PlayGame()

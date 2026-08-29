@@ -97,31 +97,18 @@ public class NarrationController : MonoBehaviour
 
     public bool StartNarration(NarrationData narration)
     {
-    Debug.Log("NARRATION TRIGGER: " + gameObject.name + " | Scene: " + gameObject.scene.name + " | Data: " + narration);
 
     if (narration == null)
-    {
-        Debug.LogWarning("Narration rejected: narration is NULL");
         return false;
-    }
 
     if (IsNarrating)
-    {
-        Debug.LogWarning("Narration rejected: another narration is already running");
         return false;
-    }
 
     if (PauseController.IsGamePaused)
-    {
-        Debug.LogWarning("Narration rejected: game is already paused");
         return false;
-    }
 
     if (narration.lines == null || narration.lines.Length == 0)
-    {
-        Debug.LogWarning("Narration rejected: no lines");
         return false;
-    }
 
     currentNarration = narration;
     lineIndex = 0;
