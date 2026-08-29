@@ -161,7 +161,7 @@ public class NarrationController : MonoBehaviour
         if (narrationImage != null)
         {
             narrationImage.sprite = line.image;
-            narrationImage.gameObject.SetActive(line.image != null);
+            narrationImage.transform.parent.gameObject.SetActive(line.image != null);
         }
 
         string processedText = ProcessCustomTags(line.text);
@@ -309,7 +309,7 @@ public class NarrationController : MonoBehaviour
         if (narrationImage != null)
         {
             narrationImage.sprite = null;
-            narrationImage.gameObject.SetActive(false);
+            narrationImage.transform.parent.gameObject.SetActive(false);
         }
 
         currentNarration = null;

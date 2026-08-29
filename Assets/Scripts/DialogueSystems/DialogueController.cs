@@ -132,7 +132,7 @@ public class DialogueController : MonoBehaviour
             npcPortraitImage.sprite = npcData.portrait;
 
             activeDialogueText = npcDialogueText;
-            activeTextEffects = npcTextEffects;
+            activeTextEffects = npcDialogueText.GetComponent<DialogueTextEffects>();
             activePortraitAnimator = npcPortraitAnimator;
             activeContinueArrow = npcContinueArrow;
 
@@ -145,7 +145,7 @@ public class DialogueController : MonoBehaviour
             playerDialogueBox.SetActive(true);
 
             activeDialogueText = playerDialogueText;
-            activeTextEffects = playerTextEffects;
+            activeTextEffects = playerDialogueText.GetComponent<DialogueTextEffects>();
             activePortraitAnimator = playerPortraitAnimator;
             activeContinueArrow = playerContinueArrow;
 
@@ -225,7 +225,7 @@ public class DialogueController : MonoBehaviour
             npcPortraitImage.sprite = npcData.portrait;
 
             activeDialogueText = npcDialogueText;
-            activeTextEffects = npcTextEffects;
+            activeTextEffects = npcDialogueText.GetComponent<DialogueTextEffects>();
             activePortraitAnimator = npcPortraitAnimator;
             activeContinueArrow = npcContinueArrow;
 
@@ -235,7 +235,7 @@ public class DialogueController : MonoBehaviour
         else
         {
             activeDialogueText = playerDialogueText;
-            activeTextEffects = playerTextEffects;
+            activeTextEffects = playerDialogueText.GetComponent<DialogueTextEffects>();
             activePortraitAnimator = playerPortraitAnimator;
             activeContinueArrow = playerContinueArrow;
 

@@ -62,17 +62,24 @@ public class DialogueTextEffects : MonoBehaviour
 
     public void PrepareText(string rawText)
     {
-        string processedText = ParseCustomTags(rawText);
-        text.text = processedText;
-        text.maxVisibleCharacters = 0;
-        text.ForceMeshUpdate();
+        if (text == null)
+            text = GetComponent<TMP_Text>();
 
-        revealTimes = new float[text.textInfo.characterCount];
+        string processedText = ParseCustomTags(rawText);
+
+        text.text = processedText;
+
+        TMP_TextInfo info = text.GetTextInfo(processedText);
+        Debug.Log("TMP PARSED COUNT: " + info.characterCount);
+
+        revealTimes = new float[info.characterCount];
 
         for (int i = 0; i < revealTimes.Length; i++)
-        {
             revealTimes[i] = -1000f;
-        }
+
+        text.maxVisibleCharacters = 0;
+
+        text.ForceMeshUpdate(true, true);
     }
 
     public void RevealCharacter(int index)
@@ -103,6 +110,9 @@ public class DialogueTextEffects : MonoBehaviour
 
     public void Clear()
     {
+        if (text == null)
+            text = GetComponent<TMP_Text>();
+
         text.text = "";
         text.maxVisibleCharacters = int.MaxValue;
         shakeRanges.Clear();
@@ -111,8 +121,7 @@ public class DialogueTextEffects : MonoBehaviour
 
     public int GetCharacterCount()
     {
-        text.ForceMeshUpdate();
-        return text.textInfo.characterCount;
+        return revealTimes != null ? revealTimes.Length : 0;
     }
 
     public char GetCharacter(int index)
