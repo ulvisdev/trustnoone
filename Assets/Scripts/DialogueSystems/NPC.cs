@@ -130,6 +130,9 @@ public class NPC : MonoBehaviour
 
         int characterCount = dialogueUI.GetDialogueCharacterCount();
 
+        Debug.Log("LINE: " + currentFullLine);
+        Debug.Log("CHARACTER COUNT: " + characterCount);
+
         AudioClip voiceClip = dialogueData.voiceSound;
         float voicePitch = dialogueData.voicePitch;
 

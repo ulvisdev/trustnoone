@@ -31,8 +31,17 @@ public class DialoguePortraitAnimator : MonoBehaviour
         portraitImage = GetComponent<Image>();
     }
 
+    private void OnEnable()
+    {
+        if (portraitImage == null)
+            portraitImage = GetComponent<Image>();
+    }
+
     public void Configure(Sprite idle, Sprite blink, Sprite talking)
     {
+        if (portraitImage == null)
+            portraitImage = GetComponent<Image>();
+
         idleSprite = idle;
         blinkSprite = blink;
         talkingSprite = talking;
@@ -41,7 +50,8 @@ public class DialoguePortraitAnimator : MonoBehaviour
         mouthOpen = false;
         isBlinking = false;
 
-        portraitImage.sprite = idleSprite;
+        if (portraitImage != null)
+            portraitImage.sprite = idleSprite;
 
         ResetBlinkTimer();
     }

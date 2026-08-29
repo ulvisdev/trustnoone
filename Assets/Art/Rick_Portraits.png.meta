@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 677673e2af4d0fb44891db88c8effec3
+guid: 1572d27e36693f94d981788f7486c2f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 536453588206111049
-    second: LadyRobertson_Portraits_0
+      213: -7937981758147510064
+    second: Rick_Portraits_0
   - first:
-      213: -3026749372328661310
-    second: LadyRobertson_Portraits_1
+      213: -1610482211361813004
+    second: Rick_Portraits_1
+  - first:
+      213: -8487718046458800468
+    second: Rick_Portraits_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,45 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LadyRobertson_Portraits_0
+      name: Rick_Portraits_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 980
-        width: 890
-        height: 950
+        x: 0
+        y: 1402
+        width: 1070
+        height: 700
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 949428b32bdd17700800000000000000
-      internalID: 536453588206111049
+      spriteID: 0d04610f5af96d190800000000000000
+      internalID: -7937981758147510064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LadyRobertson_Portraits_1
+      name: Rick_Portraits_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 0
-        width: 890
-        height: 950
+        x: 0
+        y: 702
+        width: 1070
+        height: 700
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2cea6367b73def5d0800000000000000
-      internalID: -3026749372328661310
+      spriteID: 4fd81b226fa66a9e0800000000000000
+      internalID: -1610482211361813004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rick_Portraits_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 1070
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca696271861953a80800000000000000
+      internalID: -8487718046458800468
       vertices: []
       indices: 
       edges: []
@@ -163,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a3e860ed11137d04d945b762a4f51fc0
+    spriteID: 4c827bd08897cb6429890ac26fa0e58d
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LadyRobertson_Portraits_0: 536453588206111049
-      LadyRobertson_Portraits_1: -3026749372328661310
+      Rick_Portraits_0: -7937981758147510064
+      Rick_Portraits_1: -1610482211361813004
+      Rick_Portraits_2: -8487718046458800468
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

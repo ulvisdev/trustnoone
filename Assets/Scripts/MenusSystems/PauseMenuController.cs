@@ -13,6 +13,8 @@ public class PauseMenuController : MonoBehaviour
     [Header("Scenes")]
     [SerializeField] private string mainMenuSceneName = "MainMenu";
 
+    [SerializeField] private UIMenuEntrance menuEntrance;
+
     private bool wasPausedBeforeMenu;
 
     private void Awake()
@@ -51,6 +53,7 @@ public class PauseMenuController : MonoBehaviour
         PauseController.SetPause(true);
 
         panelTransition.Show(pausePanel);
+        menuEntrance.Play();
     }
 
     public void Resume()

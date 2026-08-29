@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class DialogueController : MonoBehaviour
 {
@@ -45,8 +46,14 @@ public class DialogueController : MonoBehaviour
     public GameObject npcContinueArrow;
     public GameObject playerContinueArrow;
 
-    [Header("Transitions")]
-    public UITransition dialogueLineTransition;
+    [Header("Speaker Transition")]
+    public CanvasGroup npcDialogueGroup;
+    public CanvasGroup playerDialogueGroup;
+    public float speakerTransitionDuration = 0.25f;
+    private UITransition dialogueLineTransition;
+
+    private DialogueSpeaker? currentSpeaker;
+    private Coroutine speakerTransitionCoroutine;
 
     private DialogueTextEffects activeTextEffects;
     private DialoguePortraitAnimator activePortraitAnimator;
@@ -97,6 +104,25 @@ public class DialogueController : MonoBehaviour
     {
         ShowContinueArrow(false);
 
+        bool speakerChanged = currentSpeaker.HasValue && currentSpeaker.Value != speaker;
+
+        if (speakerChanged)
+        {
+            if (speakerTransitionCoroutine != null)
+                StopCoroutine(speakerTransitionCoroutine);
+
+            speakerTransitionCoroutine = StartCoroutine(TransitionSpeaker(speaker, npcData));
+        }
+        else
+        {
+            ApplySpeaker(speaker, npcData);
+        }
+
+        currentSpeaker = speaker;
+    }
+
+    private void ApplySpeaker(DialogueSpeaker speaker, NPCDialogue npcData)
+    {
         if (speaker == DialogueSpeaker.NPC)
         {
             npcDialogueBox.SetActive(true);
@@ -106,7 +132,7 @@ public class DialogueController : MonoBehaviour
             npcPortraitImage.sprite = npcData.portrait;
 
             activeDialogueText = npcDialogueText;
-            activeTextEffects = npcTextEffects;
+            activeTextEffects = npcDialogueText.GetComponent<DialogueTextEffects>();
             activePortraitAnimator = npcPortraitAnimator;
             activeContinueArrow = npcContinueArrow;
 
@@ -119,7 +145,7 @@ public class DialogueController : MonoBehaviour
             playerDialogueBox.SetActive(true);
 
             activeDialogueText = playerDialogueText;
-            activeTextEffects = playerTextEffects;
+            activeTextEffects = playerDialogueText.GetComponent<DialogueTextEffects>();
             activePortraitAnimator = playerPortraitAnimator;
             activeContinueArrow = playerContinueArrow;
 
@@ -129,7 +155,101 @@ public class DialogueController : MonoBehaviour
                 playerPortraitImage.sprite = DialogueState.Instance.playerPortrait;
 
                 if (playerPortraitAnimator != null)
-                    playerPortraitAnimator.Configure(DialogueState.Instance.playerPortrait, DialogueState.Instance.playerBlinkPortrait, DialogueState.Instance.playerTalkingPortrait);
+                    playerPortraitAnimator.Configure(
+                        DialogueState.Instance.playerPortrait,
+                        DialogueState.Instance.playerBlinkPortrait,
+                        DialogueState.Instance.playerTalkingPortrait
+                    );
+            }
+            else
+            {
+                playerNameText.text = "Player";
+            }
+        }
+    }
+
+    private IEnumerator TransitionSpeaker(DialogueSpeaker newSpeaker, NPCDialogue npcData)
+    {
+        CanvasGroup outgoingGroup;
+        CanvasGroup incomingGroup;
+
+        if (newSpeaker == DialogueSpeaker.NPC)
+        {
+            outgoingGroup = playerDialogueGroup;
+            incomingGroup = npcDialogueGroup;
+
+            npcDialogueBox.SetActive(true);
+        }
+        else
+        {
+            outgoingGroup = npcDialogueGroup;
+            incomingGroup = playerDialogueGroup;
+
+            playerDialogueBox.SetActive(true);
+        }
+
+        incomingGroup.alpha = 0f;
+
+        ApplySpeakerWithoutVisibilityChange(newSpeaker, npcData);
+
+        float time = 0f;
+
+        while (time < speakerTransitionDuration)
+        {
+            time += Time.unscaledDeltaTime;
+
+            float t = Mathf.Clamp01(time / speakerTransitionDuration);
+
+            outgoingGroup.alpha = Mathf.Lerp(1f, 0f, t);
+            incomingGroup.alpha = Mathf.Lerp(0f, 1f, t);
+
+            yield return null;
+        }
+
+        outgoingGroup.alpha = 0f;
+        incomingGroup.alpha = 1f;
+
+        if (newSpeaker == DialogueSpeaker.NPC)
+            playerDialogueBox.SetActive(false);
+        else
+            npcDialogueBox.SetActive(false);
+
+        speakerTransitionCoroutine = null;
+    }
+
+    private void ApplySpeakerWithoutVisibilityChange(DialogueSpeaker speaker, NPCDialogue npcData)
+    {
+        if (speaker == DialogueSpeaker.NPC)
+        {
+            npcNameText.text = npcData.npcName;
+            npcPortraitImage.sprite = npcData.portrait;
+
+            activeDialogueText = npcDialogueText;
+            activeTextEffects = npcDialogueText.GetComponent<DialogueTextEffects>();
+            activePortraitAnimator = npcPortraitAnimator;
+            activeContinueArrow = npcContinueArrow;
+
+            if (npcPortraitAnimator != null)
+                npcPortraitAnimator.Configure(npcData.portrait, npcData.blinkPortrait, npcData.talkingPortrait);
+        }
+        else
+        {
+            activeDialogueText = playerDialogueText;
+            activeTextEffects = playerDialogueText.GetComponent<DialogueTextEffects>();
+            activePortraitAnimator = playerPortraitAnimator;
+            activeContinueArrow = playerContinueArrow;
+
+            if (DialogueState.Instance != null)
+            {
+                playerNameText.text = DialogueState.Instance.PlayerName;
+                playerPortraitImage.sprite = DialogueState.Instance.playerPortrait;
+
+                if (playerPortraitAnimator != null)
+                    playerPortraitAnimator.Configure(
+                        DialogueState.Instance.playerPortrait,
+                        DialogueState.Instance.playerBlinkPortrait,
+                        DialogueState.Instance.playerTalkingPortrait
+                    );
             }
             else
             {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280c4326a059df94fabc20b6d7fee8dc, type: 3}
   m_Name: TestItemNarrationData
   m_EditorClassIdentifier: 
-  heading: A Bloody Ceremonial Knife
+  heading: A Bloody Knife
   typingSpeed: 0.03
   punctuationPause: 0.15
   pauseGame: 1
