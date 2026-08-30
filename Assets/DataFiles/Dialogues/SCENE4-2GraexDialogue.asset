@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SCENE4-2GraexDialogue
   m_EditorClassIdentifier: 
   npcName: Unit 7
-  portrait: {fileID: 8372486183246367577, guid: 1d9b64f15f6305f46b4522743bd99bfc, type: 3}
-  blinkPortrait: {fileID: -763661124102193814, guid: 1d9b64f15f6305f46b4522743bd99bfc, type: 3}
-  talkingPortrait: {fileID: 733859841668104580, guid: 1d9b64f15f6305f46b4522743bd99bfc, type: 3}
+  portrait: {fileID: 21300000, guid: 9092d808925dbc24286395847431cf3b, type: 3}
+  blinkPortrait: {fileID: 21300000, guid: 2d1878ff7378d7e44ae3714a1390c648, type: 3}
+  talkingPortrait: {fileID: 21300000, guid: 3d0c44bba2abd2c47b0c942294f9c09e, type: 3}
   voiceSound: {fileID: 8300000, guid: 2125eeb4bb09f9848896ee59a4aabcfe, type: 3}
   voicePitch: 1.25
   typingSpeed: 0.075

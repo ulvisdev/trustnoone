@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SCENE4-3GraexDialogue
   m_EditorClassIdentifier: 
   npcName: Graex Vohnuns
-  portrait: {fileID: -8487718046458800468, guid: 1572d27e36693f94d981788f7486c2f5, type: 3}
-  blinkPortrait: {fileID: -1610482211361813004, guid: 1572d27e36693f94d981788f7486c2f5, type: 3}
-  talkingPortrait: {fileID: -7937981758147510064, guid: 1572d27e36693f94d981788f7486c2f5, type: 3}
+  portrait: {fileID: 21300000, guid: 656b5979396646a4183427c21e8d9495, type: 3}
+  blinkPortrait: {fileID: 21300000, guid: 31cd98602c6412d4f85765242842e3b9, type: 3}
+  talkingPortrait: {fileID: 21300000, guid: ef1504be9611f064da8f23d0e3225b00, type: 3}
   voiceSound: {fileID: 8300000, guid: 2125eeb4bb09f9848896ee59a4aabcfe, type: 3}
   voicePitch: 0.95
   typingSpeed: 0.075

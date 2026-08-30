@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 1572d27e36693f94d981788f7486c2f5
+guid: 656b5979396646a4183427c21e8d9495
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7937981758147510064
-    second: Rick_Portraits_0
-  - first:
-      213: -1610482211361813004
-    second: Rick_Portraits_1
-  - first:
-      213: -8487718046458800468
-    second: Rick_Portraits_2
+      213: -640775172135031592
+    second: Rick-idle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -119,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rick_Portraits_0
+      name: Rick-idle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1406
-        width: 1070
-        height: 696
+        x: 4
+        y: 0
+        width: 762
+        height: 697
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d04610f5af96d190800000000000000
-      internalID: -7937981758147510064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rick_Portraits_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 703
-        width: 1070
-        height: 699
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4fd81b226fa66a9e0800000000000000
-      internalID: -1610482211361813004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rick_Portraits_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2
-        width: 1070
-        height: 700
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ca696271861953a80800000000000000
-      internalID: -8487718046458800468
+      spriteID: 8dc600c30628b17f0800000000000000
+      internalID: -640775172135031592
       vertices: []
       indices: 
       edges: []
@@ -188,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4c827bd08897cb6429890ac26fa0e58d
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rick_Portraits_0: -7937981758147510064
-      Rick_Portraits_1: -1610482211361813004
-      Rick_Portraits_2: -8487718046458800468
+      Rick-idle_0: -640775172135031592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
