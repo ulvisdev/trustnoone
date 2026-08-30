@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280c4326a059df94fabc20b6d7fee8dc, type: 3}
+  m_Name: SCENE4-1Narration
+  m_EditorClassIdentifier: 
+  heading: DINING HALL
+  typingSpeed: 0.0875
+  punctuationPause: 0.525
+  pauseGame: 1
+  loadSceneOnEnd: 0
+  sceneToLoad: SCENE5
+  cutscene: {fileID: 0}
+  startDialogueOnEnd: 1
+  dialogueToStart: {fileID: 11400000, guid: f14ba1bccdee64b4ab752d421daebaef, type: 2}
+  lines:
+  - text: Upon entering you are astounded by the [wave=0.25]elegance[/wave] of the
+      decor and by how [wave=0.15]<color=#E7C15A>warm</color>[/wave] it feels inside
+      the room. There sits a [wave=0.3]long[/wave] desk seated for 10, out of which
+      8 are [danger]occupied[/danger] and 2 are [wave=0.175]empty[/wave]. Presumably
+      for [item][wave=0.25]you[/wave][/item] and your newfound [item]friend[/item].
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: 378c16fea2a6d7140a089fab761cf5bf, type: 3}
+  - text: There are [wave=0.2][shake=0.3]many[/shake] different faces[/wave], some
+      hairy and others not so much, but at the end of the desk sits [shake=0.35][item]Graex
+      Vohnuns[/item] himself[/shake]. A very fat and well dressed mogul. [item]Your[/item]
+      intel on him is [wave=0.2]very[/wave] varied. Some sources say that his [wave=0.15]wealth
+      and power[/wave] was [item]inherited[/item] and others point towards a lot
+      [shake=0.35][danger]darker[/shake][/danger] history full of [shake=0.3]scandalous
+      deals and manipulation[/shake].
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: 31b2efad418fdc748ab8a76dc9a5ba98, type: 3}

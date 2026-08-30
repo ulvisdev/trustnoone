@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282a93dea7f9b994892aa6be32016dee, type: 3}
+  m_Name: SCENE4-2GraexDialogue
+  m_EditorClassIdentifier: 
+  npcName: Unit 7
+  portrait: {fileID: 8372486183246367577, guid: 1d9b64f15f6305f46b4522743bd99bfc, type: 3}
+  blinkPortrait: {fileID: -763661124102193814, guid: 1d9b64f15f6305f46b4522743bd99bfc, type: 3}
+  talkingPortrait: {fileID: 733859841668104580, guid: 1d9b64f15f6305f46b4522743bd99bfc, type: 3}
+  voiceSound: {fileID: 8300000, guid: 2125eeb4bb09f9848896ee59a4aabcfe, type: 3}
+  voicePitch: 1.25
+  typingSpeed: 0.075
+  periodPause: 0.225
+  firstConversationCompleteFlag: unit7_met
+  repeatConversationStartNode: 3
+  narrationAfterDialogue: {fileID: 11400000, guid: 4f5bd4fcd7b6b6f45b2a9880d6cbbf2a, type: 2}
+  nodes:
+  - speaker: 0
+    text: '[wave=0.35][shake=0.25]Psst![/shake][/wave] Do [item]you[/item] have cell
+      phone coverage here?'
+    nextNodeIndex: -1
+    endDialogue: 0
+    autoProgress: 0
+    autoProgressDelay: 2
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: unit7_met
+    choices:
+    - choiceText: It disappeared as soon as I landed.
+      nextNodeIndex: 1
+      requiredFlag: 
+      forbiddenFlag: 
+      flagToSet: phone_unit7_lied
+      popupText: Unit 7 will remember this.
+    - choiceText: My battery died because I was watching a movie on my way here.
+      nextNodeIndex: 2
+      requiredFlag: 
+      forbiddenFlag: 
+      flagToSet: phone_unit7_truth
+      popupText: Unit 7 will remember this.
+    askForPlayerName: 0
+  - speaker: 1
+    text: '[shake]Oh![/shake] [wave=0.25]Uh...[/wave] It [danger]disappeared[/danger]
+      as soon as [item]I[/item] landed.'
+    nextNodeIndex: -1
+    endDialogue: 1
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
+    choices: []
+    askForPlayerName: 0
+  - speaker: 1
+    text: '[wave=0.25]Well...[/wave] [item]My[/item] battery [wave=0.275]kind[/wave]
+      of gave out on me because [item]I[/item] was watching a movie on my way here.'
+    nextNodeIndex: -1
+    endDialogue: 1
+    autoProgress: 0
+    autoProgressDelay: 0
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: 
+    choices: []
+    askForPlayerName: 0

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282a93dea7f9b994892aa6be32016dee, type: 3}
+  m_Name: SCENE4-1GraexDialogue
+  m_EditorClassIdentifier: 
+  npcName: Graex Vohnuns
+  portrait: {fileID: -8487718046458800468, guid: 1572d27e36693f94d981788f7486c2f5, type: 3}
+  blinkPortrait: {fileID: -1610482211361813004, guid: 1572d27e36693f94d981788f7486c2f5, type: 3}
+  talkingPortrait: {fileID: -7937981758147510064, guid: 1572d27e36693f94d981788f7486c2f5, type: 3}
+  voiceSound: {fileID: 8300000, guid: 2125eeb4bb09f9848896ee59a4aabcfe, type: 3}
+  voicePitch: 0.95
+  typingSpeed: 0.075
+  periodPause: 0.225
+  firstConversationCompleteFlag: graex_met
+  repeatConversationStartNode: 3
+  narrationAfterDialogue: {fileID: 11400000, guid: 35dc3f06792e00b48872866fe0379183, type: 2}
+  nodes:
+  - speaker: 0
+    text: '[shake]Ah![/shake] You must be [item]{playerName}[/item]. [wave=0.25]Excellent
+      timing[/wave]. [shake=0.4]Everyone[/shake] raise a glass to our [wave=0.2]newest[/wave]
+      arrival!'
+    nextNodeIndex: -1
+    endDialogue: 1
+    autoProgress: 0
+    autoProgressDelay: 2
+    requiredFlag: 
+    forbiddenFlag: 
+    flagToSet: graex_met
+    choices: []
+    askForPlayerName: 0

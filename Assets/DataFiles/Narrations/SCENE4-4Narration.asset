@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280c4326a059df94fabc20b6d7fee8dc, type: 3}
+  m_Name: SCENE4-4Narration
+  m_EditorClassIdentifier: 
+  heading: DINING HALL
+  typingSpeed: 0.085
+  punctuationPause: 0.525
+  pauseGame: 1
+  loadSceneOnEnd: 0
+  sceneToLoad: SCENE5
+  cutscene: {fileID: 0}
+  startDialogueOnEnd: 1
+  dialogueToStart: {fileID: 11400000, guid: 43c281b20ec1f3e40a08d10706b2b2df, type: 2}
+  lines:
+  - text: '[item]Robot[/item] looks at you with a [shake=0.3]concerning stare[/shake]. 
+      After [wave=0.25]a few[/wave] speeches here and pledges there, [item]everyone[/wave][/item]
+      commences dining. It was [wave=0.3]delicious and surprisingly calm[/wave],
+      but [danger]something was [shake=0.35]missing[/shake][/danger]. Could it be
+      the absence of [item]Graex''s[/item] [shake=0.2]important announcement[/shake]
+      or [wave=0.25]could it be[/wave] the lack of-'
+    image: {fileID: 0}
+    autoProgress: 1
+    autoProgressDelay: 3
+    voiceOver: {fileID: 8300000, guid: 33c5eb8f5ff92ca419a34e4cdc0783d3, type: 3}

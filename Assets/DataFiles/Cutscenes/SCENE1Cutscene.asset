@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SCENE1Cutscene
   m_EditorClassIdentifier: 
   frames:
-  - image: {fileID: 21300000, guid: 69b07e0ddc90ae24e9c814ae03b2992b, type: 3}
+  - image: {fileID: 21300000, guid: 0a82b529ed7b3cc4fa3c2155ad844580, type: 3}
     duration: 0
   advanceMode: 0
-  narration: {fileID: 11400000, guid: f24fb576cc8a7f049bee60d5806d2cd7, type: 2}
+  narration: {fileID: 11400000, guid: 068540c85d65d9a488b5ec9d2de481e2, type: 2}
   keepLastFrameVisible: 1
   pauseGame: 1

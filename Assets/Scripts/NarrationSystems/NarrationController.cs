@@ -98,22 +98,25 @@ public class NarrationController : MonoBehaviour
     public bool StartNarration(NarrationData narration)
     {
 
-    if (narration == null)
-        return false;
+        if (narration == null)
+            return false;
 
-    if (IsNarrating)
-        return false;
+        if (IsNarrating)
+            return false;
 
-    if (PauseController.IsGamePaused)
-        return false;
+        if (PauseController.IsGamePaused)
+            return false;
 
-    if (narration.lines == null || narration.lines.Length == 0)
-        return false;
+        if (narration.lines == null || narration.lines.Length == 0)
+            return false;
 
-    currentNarration = narration;
-    lineIndex = 0;
-    IsNarrating = true;
-    narrationStartFrame = Time.frameCount;
+        currentNarration = narration;
+        lineIndex = 0;
+        IsNarrating = true;
+        narrationStartFrame = Time.frameCount;
+
+        if (currentNarration.cutscene != null && CutsceneController.Instance != null)
+            CutsceneController.Instance.StartNarrationCutscene(currentNarration.cutscene);
 
         if (narrationFade != null)
             narrationFade.Show();
@@ -312,6 +315,12 @@ public class NarrationController : MonoBehaviour
             narrationImage.transform.parent.gameObject.SetActive(false);
         }
 
+        bool loadSceneOnEnd = currentNarration.loadSceneOnEnd;
+        string sceneToLoad = currentNarration.sceneToLoad;
+
+        bool startDialogueOnEnd = currentNarration.startDialogueOnEnd;
+        NPCDialogue dialogueToStart = currentNarration.dialogueToStart;
+
         currentNarration = null;
 
         if (pausedByNarration)
@@ -323,6 +332,29 @@ public class NarrationController : MonoBehaviour
         //end cutscene together with narration
         if (CutsceneController.Instance != null)
             CutsceneController.Instance.NarrationEnded();
+
+        Debug.Log("Narration finished. Load scene: " + loadSceneOnEnd +
+          " | Scene: " + sceneToLoad +
+          " | ScreenFader: " + ScreenFader.Instance);
+
+        if (loadSceneOnEnd && !string.IsNullOrWhiteSpace(sceneToLoad))
+        {
+            if (ScreenFader.Instance != null && !ScreenFader.Instance.IsBusy)
+                ScreenFader.Instance.LoadScene(sceneToLoad);
+        }
+        else if (startDialogueOnEnd && dialogueToStart != null)
+        {
+            NPC[] npcs = FindObjectsByType<NPC>(FindObjectsSortMode.None);
+
+            foreach (NPC npc in npcs)
+            {
+                if (npc.dialogueData == dialogueToStart)
+                {
+                    npc.StartDialogue();
+                    break;
+                }
+            }
+        }
     }
 
     private void StopCurrentCoroutine()

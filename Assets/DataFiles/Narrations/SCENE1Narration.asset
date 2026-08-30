@@ -13,166 +13,30 @@ MonoBehaviour:
   m_Name: SCENE1Narration
   m_EditorClassIdentifier: 
   heading: THE CONCORD
-  typingSpeed: 0.03
-  punctuationPause: 0.15
+  typingSpeed: 0.075
+  punctuationPause: 0.65
   pauseGame: 1
+  loadSceneOnEnd: 1
+  sceneToLoad: SCENE2
+  cutscene: {fileID: 0}
+  startDialogueOnEnd: 0
+  dialogueToStart: {fileID: 0}
   lines:
-  - text: 'For a very long time, every intelligent species in the galaxy believed
-      they were [wave]alone.[/wave] They were, of course, [shake]very wrong.[/shake]'
+  - text: Hundreds of planets have succumbed to ruin. Not by natural decay or asteroid
+      impacts, but by [shake=0.2][danger]war[/danger][/shake]. Feuds born of arrogance
+      leave one empire stripped of resources and picked clean of life, and the other
+      totally exhausted, left for someone else to prey upon.
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: Eventually, civilizations found one another. Signals crossed the dark,
-      ships crossed the stars, and intelligent life discovered that meeting aliens
-      creates an absolutely [danger]horrifying[/danger] amount of paperwork.
+    voiceOver: {fileID: 8300000, guid: a2646f3a9f41ecf42830d543e9884f17, type: 3}
+  - text: A premise that seemed very unwise to [item][wave=0.5]Graex Vohnuns[/wave][/item],
+      a leader of his own nation. Which is why he used his [danger]power[/danger]
+      and [item]wealth[/item] to form an [item][wave=0.75]Interspecies Trade Network[/item][/wave].
+      The corporation that controls translation, interplanetary banking, diplomatic
+      communications and most importantly the [wave][shake=0.2]Concord[/wave][/shake],
+      the treaty that opened trade and travel between species.
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: '[item]Trade agreements.[/item] [item]Travel laws.[/item] [item]Currencies.[/item]
-      [item]Translation standards.[/item] [item]Diplomatic protocols.[/item] And
-      several extremely serious arguments about who technically discovered whom first.'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: Someone had to organize all of it. Unfortunately, that someone was <color=#E7C15A>Graex
-      Vohnuns.</color>
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: Graex founded the [item]Inter-Species Trade Network[/item], better known
-      as the [item]ITN[/item]. It [wave]connected[/wave] civilizations that had spent
-      millions of years having absolutely nothing to do with each other.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: Now they could trade, travel, communicate, borrow money, argue professionally,
-      and file complaints across multiple solar systems.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: The ITN handled [item]shipping[/item], [item]translation[/item], [item]banking[/item],
-      [item]diplomatic communications[/item], and practically [wave]everything[/wave]
-      else that needed to pass from one world to another.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: If something crossed a planetary border, there was a very good chance <color=#E7C15A>Graex
-      Vohnuns</color> was making money from it.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: If something crossed a planetary border, there was a very good chance <color=#E7C15A>Graex
-      Vohnuns</color> was making money from it.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: They also called him [wave]many other things[/wave], usually when he wasn't
-      in the room.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: They also called him many other things, usually when he wasn't in the room.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: '[wave=0.5]One hundred years ago[/wave], the major civilizations signed
-      the [item]Concord[/item]. For the first time, species could formally trade,
-      travel and cooperate under the same agreement.'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: 'It changed the galaxy. Worlds separated for entire histories could finally
-      exchange knowledge, culture, technology and, occasionally, [shake]deeply [danger]regrettable[/danger]
-      ideas.[/shake]'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: 'It changed the galaxy. Worlds separated for entire histories could finally
-      exchange knowledge, culture, technology and, occasionally, [shake]deeply regrettable
-      ideas.[/shake]'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: 'It changed the galaxy. Worlds separated for entire histories could finally
-      exchange knowledge, culture, technology and, occasionally, [shake]deeply regrettable
-      ideas.[/shake]'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: 'It changed the galaxy. Worlds separated for entire histories could finally
-      exchange knowledge, culture, technology and, occasionally, [shake]deeply regrettable
-      ideas.[/shake]'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: Humanity is the newest civilization in the Concord. Very new. Some species
-      attending tonight have been practicing interstellar diplomacy longer than humans
-      have had indoor plumbing.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: Ideally, humanity would have sent an experienced ambassador. Someone important.
-      Someone who actually knew what they were doing.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: 'Instead... [wave]they sent [item]you[/item].[/wave]'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: You are humanity's only representative tonight. A junior diplomat surrounded
-      by some of the most powerful individuals in the known galaxy.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: You have never attended a Concord gathering, never met Robert Robertson,
-      and still aren't entirely convinced somebody didn't send the invitation to
-      the wrong human.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: '[shake=0.3]Unfortunately...[/shake] [item]the invitation is [wave=0.2]real[/wave].[/item]'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: 'There is also a rumor. Robert Robertson intends to make an announcement
-      tonight, and although nobody knows what it is, apparently [shake=0.2][danger]every
-      important person in the room wanted to be there when he said it.[/danger][/shake]'
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: Tonight, you're having dinner with some of the most powerful people in
-      the galaxy.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
-  - text: Tonight, you're having dinner with some of the most powerful people in
-      the galaxy.
-    image: {fileID: 0}
-    autoProgress: 0
-    autoProgressDelay: 2.5
-    voiceOver: {fileID: 0}
+    voiceOver: {fileID: 8300000, guid: 81282a89d6b2b234b80f5b4da3199555, type: 3}

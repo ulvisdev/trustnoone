@@ -142,6 +142,32 @@ public class CutsceneController : MonoBehaviour
         return true;
     }
 
+    public bool StartNarrationCutscene(CutsceneData cutscene)
+    {
+        if (cutscene == null)
+            return false;
+
+        if (IsPlaying)
+            return false;
+
+        if (cutscene.frames == null || cutscene.frames.Length == 0)
+            return false;
+
+        currentCutscene = cutscene;
+        frameIndex = 0;
+        IsPlaying = true;
+        pausedByCutscene = false;
+
+        cutscenePanel.SetActive(true);
+
+        if (cutsceneFade != null)
+            cutsceneFade.ShowImmediate();
+
+        ShowFrame(0);
+
+        return true;
+    }
+
     public void ShowNarrationFrame(int narrationLineIndex)
     {
         if (!IsPlaying)
@@ -201,9 +227,10 @@ public class CutsceneController : MonoBehaviour
         nextImage.sprite = newSprite;
         nextImage.enabled = newSprite != null;
 
+        nextImage.transform.SetAsLastSibling();
+
         SetImageAlpha(nextImage, 0f);
 
-        float startCurrentAlpha = currentImage.color.a;
         float time = 0f;
 
         while (time < crossfadeDuration)
@@ -212,7 +239,7 @@ public class CutsceneController : MonoBehaviour
 
             float t = Mathf.Clamp01(time / crossfadeDuration);
 
-            SetImageAlpha(currentImage, Mathf.Lerp(startCurrentAlpha, 0f, t));
+            SetImageAlpha(currentImage, 1f);
             SetImageAlpha(nextImage, Mathf.Lerp(0f, 1f, t));
 
             yield return null;

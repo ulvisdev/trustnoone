@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280c4326a059df94fabc20b6d7fee8dc, type: 3}
+  m_Name: SCENE2Narration
+  m_EditorClassIdentifier: 
+  heading: THE MANSION
+  typingSpeed: 0.0825
+  punctuationPause: 0.61
+  pauseGame: 1
+  loadSceneOnEnd: 1
+  sceneToLoad: SCENE3
+  cutscene: {fileID: 0}
+  startDialogueOnEnd: 0
+  dialogueToStart: {fileID: 0}
+  lines:
+  - text: '[wave=0.25]Once every [item]25[/item] years[/wave], representatives from
+      every major intelligent species gather at the private estate of [item][wave=0.5]Graex
+      Vohnuns[/item][/wave] to renew their vows of peace and pitch new ideas, but
+      this year is different.'
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: 63bb2ede9bf0ac443911c9f2a51d022d, type: 3}
+  - text: It honors the [wave=0.2][item]100th[/wave][/item] anniversary of the [wave=0.2][shake=0.2]Concord[/wave][/shake],
+      hence why a rumor is spreading that [wave][item]Graex[/wave][/item] is going
+      to announce something of [shake=0.25]utmost importance[/shake] at dinner. Besides,
+      a new sharp life-form has joined the [item]ITN[/item], said to have [shake=0.3]advanced
+      from powered flight to interstellar probes in a [wave=0.25]single lifetime[/wave][/shake].
+      For the first time, the summit welcomes a representative of the [danger][shake=0.35]human[/shake]
+      race[/danger].
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: ce8c2274e94469444b03cbc103b734e0, type: 3}
+  - text: Before you stands the private estate of [item][wave=0.15]Graex Vohnuns[/item][/wave].
+      A mansion large enough to make the word mansion feel rather inadequate. [shake=0.25]Tonight[/shake],
+      somewhere behind those walls, sit [item]representatives[/item] of civilizations
+      that have crossed stars, outlived empires, and shaped entire worlds. And now,
+      somehow, you are among them.
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: fa4382cba37f1e04a9132a1df38b6945, type: 3}
+  - text: You make your way toward the entrance, up a staircase clearly designed
+      for something with much shorter legs than yours. The [shake=0.3]enormous[/shake]
+      doors loom ahead, covered in carvings you cannot read and, frankly, are not
+      [wave=0.25]entirely[/wave] convinced are writing. Before you can knock, there
+      is a [wave=0.15]quiet[/wave] [danger]click[/danger].
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: 50c10252a0852cd44937821cc3e2842f, type: 3}
+  - text: The doors [wave=0.25][shake=0.2]swing[/shake] open[/wave]. On the other
+      side stands a [item]small alien[/item], [wave=0.1]barely[/wave] reaching your
+      chest. He is dressed [wave=0.2]immaculately[/wave], hands folded neatly behind
+      his back, staring up at you with a [item]smile[/item] that is perhaps just
+      a little [shake=0.25]too[/shake] enthusiastic. For [wave=0.25]several seconds[/wave],
+      [danger]neither[/danger] of you says a word. His [item]smile[/item] [wave=0.2]grows
+      wider[/wave].
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: ea8256a043b70e54794a7edc6d8cf0a8, type: 3}

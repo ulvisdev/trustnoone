@@ -31,6 +31,27 @@ public class UIFade : MonoBehaviour
         fadeCoroutine = StartCoroutine(FadeTo(1f, null));
     }
 
+    public void ShowImmediate()
+    {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+            fadeCoroutine = null;
+        }
+
+        if (canvasGroup == null)
+            canvasGroup = GetComponent<CanvasGroup>();
+
+        if (canvasGroup == null)
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+
+        gameObject.SetActive(true);
+
+        canvasGroup.alpha = 1f;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+    }
+
     public void Hide(Action onComplete = null)
     {
         if (!gameObject.activeSelf)

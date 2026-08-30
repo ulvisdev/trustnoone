@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280c4326a059df94fabc20b6d7fee8dc, type: 3}
+  m_Name: SCENE4-5Narration
+  m_EditorClassIdentifier: 
+  heading: DINING HALL
+  typingSpeed: 0.06
+  punctuationPause: 0.575
+  pauseGame: 1
+  loadSceneOnEnd: 1
+  sceneToLoad: SCENE5
+  cutscene: {fileID: 11400000, guid: 8f74680305cf3d843b00c2f382f0ad1a, type: 2}
+  startDialogueOnEnd: 0
+  dialogueToStart: {fileID: 11400000, guid: 43c281b20ec1f3e40a08d10706b2b2df, type: 2}
+  lines:
+  - text: '[shake=0.75][danger]SUDDENLY. LIGHTS CUT OUT. GLASSES DROP. SOMEONE SCREAMS![/danger][/shake]
+      Only [item]your[/item] hands and your flashy blazer is [wave=0.25]slightly[/wave]
+      visible in the darkness, all thanks to [item]your[/item] slightly illuminated
+      food remains.'
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: aaaca8ab31e43674499275339100a483, type: 3}

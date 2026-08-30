@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280c4326a059df94fabc20b6d7fee8dc, type: 3}
+  m_Name: SCENE4-2Narration
+  m_EditorClassIdentifier: 
+  heading: DINING HALL
+  typingSpeed: 0.0975
+  punctuationPause: 0.65
+  pauseGame: 1
+  loadSceneOnEnd: 0
+  sceneToLoad: SCENE5
+  cutscene: {fileID: 0}
+  startDialogueOnEnd: 1
+  dialogueToStart: {fileID: 11400000, guid: 675820835c8b1214cb8ebcf93ba9322f, type: 2}
+  lines:
+  - text: Everyone, [shake=0.2]but the robot[/shake], [danger][shake=0.25]begrudgingly[/shake][/danger]
+      follows his order.
+    image: {fileID: 0}
+    autoProgress: 0
+    autoProgressDelay: 2.5
+    voiceOver: {fileID: 8300000, guid: 3280d788ce4242643b685ee20d8d0aa0, type: 3}

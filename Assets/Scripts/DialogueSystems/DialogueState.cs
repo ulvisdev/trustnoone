@@ -6,7 +6,7 @@ public class DialogueState : MonoBehaviour
     public static DialogueState Instance { get; private set; }
 
     [Header("Player")]
-    [SerializeField] private string defaultPlayerName = "Player";
+    [SerializeField] private string defaultPlayerName = "YOU";
 
     public Sprite playerPortrait;
     public Sprite playerBlinkPortrait;

@@ -6,6 +6,11 @@ public class RoomTransition : MonoBehaviour
 
     private void OnMouseDown()
     {
+        GoToRoom();
+    }
+
+    public void GoToRoom()
+    {
         if (ScreenFader.Instance == null)
             return;
 
@@ -14,4 +19,5 @@ public class RoomTransition : MonoBehaviour
 
         ScreenFader.Instance.LoadScene(sceneName);
     }
+
 }

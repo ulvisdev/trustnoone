@@ -13,6 +13,17 @@ public class NarrationData : ScriptableObject
     [Header("Behaviour")]
     public bool pauseGame = true;
 
+    [Header("Scene Transition")]
+    public bool loadSceneOnEnd = false;
+    public string sceneToLoad;
+
+    [Header("Optional Cutscene")]
+    public CutsceneData cutscene;
+
+    [Header("Dialogue After Narration")]
+    public bool startDialogueOnEnd = false;
+    public NPCDialogue dialogueToStart;
+
     [Header("Narration Lines")]
     public NarrationLine[] lines;
 }

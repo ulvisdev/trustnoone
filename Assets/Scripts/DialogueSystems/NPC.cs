@@ -5,6 +5,9 @@ public class NPC : MonoBehaviour
 {
     public NPCDialogue dialogueData;
 
+    [Header("Start")]
+    public bool startDialogueOnSceneLoad;
+
     private DialogueController dialogueUI;
 
     private int dialogueIndex;
@@ -22,6 +25,9 @@ public class NPC : MonoBehaviour
     private void Start()
     {
         dialogueUI = DialogueController.Instance;
+
+        if (startDialogueOnSceneLoad)
+            StartDialogue();
     }
 
     private void Update()
@@ -421,6 +427,9 @@ public class NPC : MonoBehaviour
         dialogueUI.ShowDialogue(false);
 
         PauseController.SetPause(false);
+
+        if (dialogueData.narrationAfterDialogue != null && NarrationController.Instance != null)
+            NarrationController.Instance.StartNarration(dialogueData.narrationAfterDialogue);
     }
 
     private void OnMouseDown()

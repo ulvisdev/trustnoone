@@ -21,6 +21,9 @@ public class NPCDialogue : ScriptableObject
     public string firstConversationCompleteFlag;
     public int repeatConversationStartNode = -1;
 
+    [Header("Optional Narration after Dialogue end")]
+    public NarrationData narrationAfterDialogue;
+
     [Header("Dialogue")]
     public DialogueNode[] nodes;
 }
