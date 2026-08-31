@@ -180,37 +180,75 @@ public class NarrationController : MonoBehaviour
         for (int i = 0; i < narrationText.textInfo.characterCount; i++)
             revealTimes.Add(-1f);
 
+        //bug fix that audio plays earlier or later depending on fps
+        // if (voiceOverSource != null && line.voiceOver != null)
+        //     voiceOverSource.PlayOneShot(line.voiceOver);
+
         if (voiceOverSource != null && line.voiceOver != null)
-            voiceOverSource.PlayOneShot(line.voiceOver);
+        {
+            voiceOverSource.clip = line.voiceOver;
+            voiceOverSource.Play();
+        }
 
         currentCoroutine = StartCoroutine(TypeCurrentLine());
     }
 
-    private IEnumerator TypeCurrentLine()
-    {
-        isTyping = true;
+//updated typecurrentline() to match the audio with the text
+private IEnumerator TypeCurrentLine()
+{
+    isTyping = true;
 
-        int totalCharacters = narrationText.textInfo.characterCount;
+    int totalCharacters = narrationText.textInfo.characterCount;
+
+    NarrationLine line = currentNarration.lines[lineIndex];
+
+    if (voiceOverSource != null && line.voiceOver != null)
+    {
+        while (voiceOverSource.isPlaying && visibleCharacterCount < totalCharacters)
+        {
+            float progress = voiceOverSource.time / line.voiceOver.length;
+            int targetCharacterCount = Mathf.FloorToInt(progress * totalCharacters);
+            targetCharacterCount = Mathf.Clamp(targetCharacterCount, 0, totalCharacters);
+
+            while (visibleCharacterCount < targetCharacterCount)
+            {
+                visibleCharacterCount++;
+                revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
+            }
+
+            yield return null;
+        }
 
         while (visibleCharacterCount < totalCharacters)
         {
             visibleCharacterCount++;
             revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
-
-            char currentCharacter = narrationText.textInfo.characterInfo[visibleCharacterCount - 1].character;
-            float delay = currentNarration.typingSpeed;
-
-            if (currentCharacter == '.' || currentCharacter == '!' || currentCharacter == '?')
-                delay += currentNarration.punctuationPause;
-
-            yield return new WaitForSecondsRealtime(delay);
         }
-
-        isTyping = false;
-        currentCoroutine = null;
-
-        CurrentLineFinished();
     }
+    else
+    {
+        float timer = 0f;
+
+        while (visibleCharacterCount < totalCharacters)
+        {
+            timer += Time.unscaledDeltaTime;
+
+            while (timer >= currentNarration.typingSpeed && visibleCharacterCount < totalCharacters)
+            {
+                timer -= currentNarration.typingSpeed;
+                visibleCharacterCount++;
+                revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
+            }
+
+            yield return null;
+        }
+    }
+
+    isTyping = false;
+    currentCoroutine = null;
+
+    CurrentLineFinished();
+}
 
     private void RevealCurrentLine()
     {

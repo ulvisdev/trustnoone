@@ -21,7 +21,7 @@ MonoBehaviour:
   typingSpeed: 0.075
   periodPause: 0.225
   firstConversationCompleteFlag: graex_met
-  repeatConversationStartNode: 3
+  repeatConversationStartNode: 0
   narrationAfterDialogue: {fileID: 11400000, guid: 35dc3f06792e00b48872866fe0379183, type: 2}
   nodes:
   - speaker: 0

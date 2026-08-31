@@ -34,10 +34,10 @@ MonoBehaviour:
   - text: There are [wave=0.2][shake=0.3]many[/shake] different faces[/wave], some
       hairy and others not so much, but at the end of the desk sits [shake=0.35][item]Graex
       Vohnuns[/item] himself[/shake]. A very fat and well dressed mogul. [item]Your[/item]
-      intel on him is [wave=0.2]very[/wave] varied. Some sources say that his [wave=0.15]wealth
+      intel on him is [wave=0.2]varied[/wave]. Some sources say that his [wave=0.15]wealth
       and power[/wave] was [item]inherited[/item] and others point towards a lot
-      [shake=0.35][danger]darker[/shake][/danger] history full of [shake=0.3]scandalous
-      deals and manipulation[/shake].
+      [shake=0.35][danger]darker[/shake][/danger] history full of [shake=0.3]scandal
+      and manipulation[/shake].
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5

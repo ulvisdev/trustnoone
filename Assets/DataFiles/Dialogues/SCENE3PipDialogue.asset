@@ -21,7 +21,7 @@ MonoBehaviour:
   typingSpeed: 0.05
   periodPause: 0.2
   firstConversationCompleteFlag: pip_met
-  repeatConversationStartNode: 3
+  repeatConversationStartNode: 0
   narrationAfterDialogue: {fileID: 11400000, guid: ca9578ceee7eaa4409e0017dc6efa642, type: 2}
   nodes:
   - speaker: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
     text: Chill out? Bro??
     nextNodeIndex: -1
     endDialogue: 0
-    autoProgress: 1
+    autoProgress: 0
     autoProgressDelay: 2
     requiredFlag: 
     forbiddenFlag: 

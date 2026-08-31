@@ -21,7 +21,7 @@ MonoBehaviour:
   typingSpeed: 0.075
   periodPause: 0.225
   firstConversationCompleteFlag: unit7_met
-  repeatConversationStartNode: 3
+  repeatConversationStartNode: 0
   narrationAfterDialogue: {fileID: 11400000, guid: 4f5bd4fcd7b6b6f45b2a9880d6cbbf2a, type: 2}
   nodes:
   - speaker: 0
