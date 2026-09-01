@@ -15,6 +15,7 @@ MonoBehaviour:
   heading: THE CONCORD
   typingSpeed: 0.075
   punctuationPause: 0.65
+  voiceTextRatio: 0.95
   pauseGame: 1
   loadSceneOnEnd: 1
   sceneToLoad: SCENE2
@@ -24,12 +25,12 @@ MonoBehaviour:
   lines:
   - text: Hundreds of planets have succumbed to ruin. Not by natural decay or asteroid
       impacts, but by [shake=0.2][danger]war[/danger][/shake]. Feuds born of arrogance
-      leave one empire stripped of resources and picked clean of life, and the other
+      leave one empire stripped of resources and picked clean of life, the other
       totally exhausted, left for someone else to prey upon.
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: a2646f3a9f41ecf42830d543e9884f17, type: 3}
+    voiceOver: {fileID: 8300000, guid: 61c89c938cb4d0541bc25c05da0a3f2d, type: 3}
   - text: A premise that seemed very unwise to [item][wave=0.5]Graex Vohnuns[/wave][/item],
       a leader of his own nation. Which is why he used his [danger]power[/danger]
       and [item]wealth[/item] to form an [item][wave=0.75]Interspecies Trade Network[/item][/wave].
@@ -39,4 +40,4 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: 81282a89d6b2b234b80f5b4da3199555, type: 3}
+    voiceOver: {fileID: 8300000, guid: 329f3608423c70041a0b3be97bc13311, type: 3}

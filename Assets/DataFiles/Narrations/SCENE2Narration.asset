@@ -15,6 +15,7 @@ MonoBehaviour:
   heading: THE MANSION
   typingSpeed: 0.0825
   punctuationPause: 0.61
+  voiceTextRatio: 0.95
   pauseGame: 1
   loadSceneOnEnd: 1
   sceneToLoad: SCENE3
@@ -29,7 +30,7 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: 63bb2ede9bf0ac443911c9f2a51d022d, type: 3}
+    voiceOver: {fileID: 8300000, guid: 6ed79a49783984743b2def4c4350879f, type: 3}
   - text: It honors the [wave=0.2][item]100th[/wave][/item] anniversary of the [wave=0.2][shake=0.2]Concord[/wave][/shake],
       hence why a rumor is spreading that [wave][item]Graex[/wave][/item] is going
       to announce something of [shake=0.25]utmost importance[/shake] at dinner. Besides,
@@ -40,7 +41,7 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: ce8c2274e94469444b03cbc103b734e0, type: 3}
+    voiceOver: {fileID: 8300000, guid: a06fb6182c2194044b340ad6098c569b, type: 3}
   - text: Before you stands the private estate of [item][wave=0.15]Graex Vohnuns[/item][/wave].
       A mansion large enough to make the word mansion feel rather inadequate. [shake=0.25]Tonight[/shake],
       somewhere behind those walls, sit [item]representatives[/item] of civilizations
@@ -49,7 +50,7 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: fa4382cba37f1e04a9132a1df38b6945, type: 3}
+    voiceOver: {fileID: 8300000, guid: 01101713f7b07304f9fe7e9f98d35018, type: 3}
   - text: You make your way toward the entrance, up a staircase clearly designed
       for something with much shorter legs than yours. The [shake=0.3]enormous[/shake]
       doors loom ahead, covered in carvings you cannot read and, frankly, are not
@@ -58,7 +59,7 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: 50c10252a0852cd44937821cc3e2842f, type: 3}
+    voiceOver: {fileID: 8300000, guid: e1b2cd96f6fe95646ac4271766b71526, type: 3}
   - text: The doors [wave=0.25][shake=0.2]swing[/shake] open[/wave]. On the other
       side stands a [item]small alien[/item], [wave=0.1]barely[/wave] reaching your
       chest. He is dressed [wave=0.2]immaculately[/wave], hands folded neatly behind
@@ -69,4 +70,4 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: ea8256a043b70e54794a7edc6d8cf0a8, type: 3}
+    voiceOver: {fileID: 8300000, guid: afd5fd236f8d02244902528a4abf3fc4, type: 3}

@@ -15,6 +15,7 @@ MonoBehaviour:
   heading: DINING HALL
   typingSpeed: 0.0875
   punctuationPause: 0.525
+  voiceTextRatio: 0.95
   pauseGame: 1
   loadSceneOnEnd: 0
   sceneToLoad: SCENE5
@@ -30,7 +31,7 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: 378c16fea2a6d7140a089fab761cf5bf, type: 3}
+    voiceOver: {fileID: 8300000, guid: be74b376f918afd42879cbfe3b4e2df2, type: 3}
   - text: There are [wave=0.2][shake=0.3]many[/shake] different faces[/wave], some
       hairy and others not so much, but at the end of the desk sits [shake=0.35][item]Graex
       Vohnuns[/item] himself[/shake]. A very fat and well dressed mogul. [item]Your[/item]
@@ -41,4 +42,4 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: 31b2efad418fdc748ab8a76dc9a5ba98, type: 3}
+    voiceOver: {fileID: 8300000, guid: dcd4537457b81844b9fb9ec1934dd40b, type: 3}

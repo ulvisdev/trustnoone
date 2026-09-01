@@ -74,7 +74,10 @@ public class ScreenFader : MonoBehaviour
         while (!operation.isDone)
             yield return null;
 
+        //bug fix with scene transition
+        fadeGroup.alpha = 1f;
         yield return null;
+
         yield return Fade(0f);
 
         fadeGroup.blocksRaycasts = false;

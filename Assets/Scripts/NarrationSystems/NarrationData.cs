@@ -10,6 +10,10 @@ public class NarrationData : ScriptableObject
     public float typingSpeed = 0.03f;
     public float punctuationPause = 0.15f;
 
+    [Header("Voice Sync")]
+    [Range(0.5f, 1f)]
+    public float voiceTextRatio = 0.9f;
+
     [Header("Behaviour")]
     public bool pauseGame = true;
 

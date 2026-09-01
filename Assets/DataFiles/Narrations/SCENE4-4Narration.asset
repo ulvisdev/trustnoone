@@ -15,6 +15,7 @@ MonoBehaviour:
   heading: DINING HALL
   typingSpeed: 0.085
   punctuationPause: 0.525
+  voiceTextRatio: 0.95
   pauseGame: 1
   loadSceneOnEnd: 0
   sceneToLoad: SCENE5
@@ -22,7 +23,7 @@ MonoBehaviour:
   startDialogueOnEnd: 1
   dialogueToStart: {fileID: 11400000, guid: 43c281b20ec1f3e40a08d10706b2b2df, type: 2}
   lines:
-  - text: '[item]Robot[/item] looks at you with a [shake=0.3]concerning stare[/shake]. 
+  - text: '[item]The robot[/item] looks at you with a [shake=0.3]concerning stare[/shake].
       After [wave=0.25]a few[/wave] speeches here and pledges there, [item]everyone[/wave][/item]
       commences dining. It was [wave=0.3]delicious and surprisingly calm[/wave],
       but [danger]something was [shake=0.35]missing[/shake][/danger]. Could it be
@@ -31,4 +32,4 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 1
     autoProgressDelay: 3
-    voiceOver: {fileID: 8300000, guid: 33c5eb8f5ff92ca419a34e4cdc0783d3, type: 3}
+    voiceOver: {fileID: 8300000, guid: 6c01a0a6dc367d54fb275d951b077c81, type: 3}

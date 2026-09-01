@@ -193,62 +193,91 @@ public class NarrationController : MonoBehaviour
         currentCoroutine = StartCoroutine(TypeCurrentLine());
     }
 
-//updated typecurrentline() to match the audio with the text
-private IEnumerator TypeCurrentLine()
-{
-    isTyping = true;
-
-    int totalCharacters = narrationText.textInfo.characterCount;
-
-    NarrationLine line = currentNarration.lines[lineIndex];
-
-    if (voiceOverSource != null && line.voiceOver != null)
+    //updated typecurrentline() to match the audio with the text
+    private IEnumerator TypeCurrentLine()
     {
-        while (voiceOverSource.isPlaying && visibleCharacterCount < totalCharacters)
-        {
-            float progress = voiceOverSource.time / line.voiceOver.length;
-            int targetCharacterCount = Mathf.FloorToInt(progress * totalCharacters);
-            targetCharacterCount = Mathf.Clamp(targetCharacterCount, 0, totalCharacters);
+        isTyping = true;
 
-            while (visibleCharacterCount < targetCharacterCount)
+        int totalCharacters = narrationText.textInfo.characterCount;
+        NarrationLine line = currentNarration.lines[lineIndex];
+
+        if (voiceOverSource != null && line.voiceOver != null)
+        {
+            int timedCharacterCount = 0;
+
+            for (int i = 0; i < totalCharacters; i++)
+            {
+                char character = narrationText.textInfo.characterInfo[i].character;
+                if (!char.IsWhiteSpace(character))
+                    timedCharacterCount++;
+            }
+
+            float typingDuration = line.voiceOver.length * currentNarration.voiceTextRatio;
+            int revealedTimedCharacters = 0;
+
+            while (voiceOverSource.isPlaying && revealedTimedCharacters < timedCharacterCount)
+            {
+                float progress = voiceOverSource.time / typingDuration;
+                progress = Mathf.Clamp01(progress);
+                int targetTimedCharacters = Mathf.FloorToInt(progress * timedCharacterCount);
+
+                while (revealedTimedCharacters < targetTimedCharacters && visibleCharacterCount < totalCharacters)
+                {
+                    char character = narrationText.textInfo.characterInfo[visibleCharacterCount].character;
+                    visibleCharacterCount++;
+                    revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
+
+                    if (!char.IsWhiteSpace(character))
+                        revealedTimedCharacters++;
+
+                    while (visibleCharacterCount < totalCharacters)
+                    {
+                        char nextCharacter = narrationText.textInfo.characterInfo[visibleCharacterCount].character;
+                        if (!char.IsWhiteSpace(nextCharacter))
+                            break;
+
+                        visibleCharacterCount++;
+                        revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
+                    }
+                }
+
+                yield return null;
+            }
+
+            while (visibleCharacterCount < totalCharacters)
             {
                 visibleCharacterCount++;
                 revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
             }
-
-            yield return null;
         }
-
-        while (visibleCharacterCount < totalCharacters)
+        else
         {
-            visibleCharacterCount++;
-            revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
-        }
-    }
-    else
-    {
-        float timer = 0f;
+            float timer = 0f;
 
-        while (visibleCharacterCount < totalCharacters)
-        {
-            timer += Time.unscaledDeltaTime;
-
-            while (timer >= currentNarration.typingSpeed && visibleCharacterCount < totalCharacters)
+            while (visibleCharacterCount < totalCharacters)
             {
-                timer -= currentNarration.typingSpeed;
-                visibleCharacterCount++;
-                revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
+                timer += Time.unscaledDeltaTime;
+
+                while (timer >= currentNarration.typingSpeed && visibleCharacterCount < totalCharacters)
+                {
+                    timer -= currentNarration.typingSpeed;
+                    char character = narrationText.textInfo.characterInfo[visibleCharacterCount].character;
+                    visibleCharacterCount++;
+                    revealTimes[visibleCharacterCount - 1] = Time.unscaledTime;
+
+                    if (char.IsWhiteSpace(character))
+                        timer += currentNarration.typingSpeed;
+                }
+
+                yield return null;
             }
-
-            yield return null;
         }
+
+        isTyping = false;
+        currentCoroutine = null;
+
+        CurrentLineFinished();
     }
-
-    isTyping = false;
-    currentCoroutine = null;
-
-    CurrentLineFinished();
-}
 
     private void RevealCurrentLine()
     {

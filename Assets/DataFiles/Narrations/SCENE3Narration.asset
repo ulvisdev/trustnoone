@@ -15,6 +15,7 @@ MonoBehaviour:
   heading: THE LOBBY
   typingSpeed: 0.0925
   punctuationPause: 0.625
+  voiceTextRatio: 0.95
   pauseGame: 1
   loadSceneOnEnd: 1
   sceneToLoad: SCENE4
@@ -27,4 +28,4 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: 23544aa56244b284e96ad15b735733b6, type: 3}
+    voiceOver: {fileID: 8300000, guid: 6d97729d5069d6249905599af507a4bb, type: 3}

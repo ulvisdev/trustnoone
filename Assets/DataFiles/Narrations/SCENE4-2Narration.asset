@@ -15,6 +15,7 @@ MonoBehaviour:
   heading: DINING HALL
   typingSpeed: 0.0975
   punctuationPause: 0.65
+  voiceTextRatio: 0.95
   pauseGame: 1
   loadSceneOnEnd: 0
   sceneToLoad: SCENE5
@@ -27,4 +28,4 @@ MonoBehaviour:
     image: {fileID: 0}
     autoProgress: 0
     autoProgressDelay: 2.5
-    voiceOver: {fileID: 8300000, guid: 3280d788ce4242643b685ee20d8d0aa0, type: 3}
+    voiceOver: {fileID: 8300000, guid: 6c485ac02039c874597dbc0b861ca852, type: 3}

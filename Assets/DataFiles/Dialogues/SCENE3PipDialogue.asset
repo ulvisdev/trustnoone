@@ -42,8 +42,8 @@ MonoBehaviour:
       improper, and-'
     nextNodeIndex: -1
     endDialogue: 0
-    autoProgress: 0
-    autoProgressDelay: 0
+    autoProgress: 1
+    autoProgressDelay: 2.5
     requiredFlag: 
     forbiddenFlag: 
     flagToSet: 
